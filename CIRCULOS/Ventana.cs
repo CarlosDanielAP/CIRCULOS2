@@ -24,6 +24,7 @@ namespace CIRCULOS
         Punto tres = new Punto(13, 0);
         Punto cuatro = new Punto(14,7);
         Punto cinco = new Punto(5, 5);//punto para pelotita
+       
         //puntos para paredes
         Punto seis = new Punto(0, 0);
         Punto siete = new Punto(1,13 );
@@ -34,6 +35,7 @@ namespace CIRCULOS
         Colision colisionador = new Colision();
 
         bool chocaJugador = false;
+        bool arribita = false;
        
 
         public VentanaGame(int ancho, int alto) : base(ancho, alto)
@@ -104,6 +106,16 @@ namespace CIRCULOS
                 }
                 else
                 {
+                    if(raqueta1.Centro < cinco.y)
+                    {
+                        arribita = true;
+                        Console.WriteLine("arriba");
+                    }
+                    if(raqueta1.Centro> cinco.y)
+                    {
+                        arribita = false;
+                        Console.WriteLine("abajo");
+                    }
                     chocaJugador = true;
                 }
             }
@@ -115,9 +127,29 @@ namespace CIRCULOS
                 }
                 else
                 {
+                    if (raqueta2.Centro < cinco.y)
+                    {
+                        arribita = true;
+                        Console.WriteLine("arriba");
+                    }
+                    if (raqueta2.Centro > cinco.y)
+                    {
+                        arribita = false;
+                        Console.WriteLine("abajo");
+                    }
+                    
                     chocaJugador = false;
                 }
 
+            }
+
+            if (arribita == true)
+            {
+                cinco.y += 0.1;
+            }
+            else
+            {
+                cinco.y -= 0.1;
             }
             ///paredes limites
             if (colisionador.checarlacolision(paredIZQ, boli))

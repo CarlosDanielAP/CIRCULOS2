@@ -20,6 +20,7 @@ namespace CIRCULOS
         double Aba;
         double Izq;
         double Der;
+        double Cent;
       
 
         public Cuadro()
@@ -37,6 +38,7 @@ namespace CIRCULOS
             Izq = a.x;
             Arr = a.y + b.y;
             Aba = a.y;
+            Cent = Arr / 2;
 
             GL.Begin(PrimitiveType.Quads);
             GL.Vertex2(a.x, a.y);
@@ -71,6 +73,11 @@ namespace CIRCULOS
         public double Arriba
         {
             get { return Arr; }
+        }
+
+        public double Centro
+        {
+            get { return Cent; }
         }
 
     }

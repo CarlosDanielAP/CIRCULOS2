@@ -14,35 +14,7 @@ namespace CIRCULOS
     class Colision
     {
                
-       public bool checarColision( Circulo bola, Cuadro jugador, Cuadro jugador2)
-        {
-            if (bola.Derecha <= jugador.Izquierda)
-            {
-                return false;
 
-            } 
-         
-
-            if (bola.Izquierda <= jugador2.Derecha)
-            {
-                return false;
-            }
-          
-           /* if (bola.Abajo >= jugador.Arriba)
-            {
-                return false;
-            }
-            if (bola.Izquierda >= jugador.Derecha)
-            {
-                return false;
-            }*/
-                  
-             
-                return true;
-            
-
-          
-        }
 
         public bool checarlacolision(Cuadro player, Circulo pelota)
         {
