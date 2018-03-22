@@ -63,7 +63,7 @@ namespace CIRCULOS
             get { return Izq; }
         }
 
-        /*public double Abajo
+        public double Abajo
         {
             get { return Aba; }
         }
@@ -71,7 +71,7 @@ namespace CIRCULOS
         public double Arriba
         {
             get { return Arr; }
-        }*/
+        }
 
     }
 }

@@ -85,19 +85,16 @@ namespace CIRCULOS
         protected override void OnRenderFrame(FrameEventArgs e)
         {
 
-            if (cinco.x <= 15)
+
+            if (!colisionador.checarlacolision(raqueta2,boli))
             {
-                cinco.x += 0.1;
-
-                if (colisionador.checarColision(boli,raqueta1,raqueta2))
-
-                    cinco.x -= 0.1;
+                cinco.x-=0.1;
             }
 
 
             base.OnRenderFrame(e);
 
-            colisionador.checarColision(boli, raqueta1, raqueta2);
+
             raqueta1.Imprime(uno, dos);
             raqueta2.Imprime(tres, cuatro);
             boli.Imprime(cinco, 0.5);
