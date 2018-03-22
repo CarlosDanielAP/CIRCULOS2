@@ -34,7 +34,7 @@ namespace CIRCULOS
         public void Imprime(Punto a, double radio)
         {
 
-            Der = a.x - radio;
+            Der = a.x +radio;
             Izq = a.x + radio;
             Arr = a.y - radio;
             Aba = a.y + radio;

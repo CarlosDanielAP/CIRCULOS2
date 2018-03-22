@@ -23,6 +23,8 @@ namespace CIRCULOS
         Punto cuatro = new Punto(14,1);
         Punto cinco = new Punto(5, 5);
         Colision colisionador = new Colision();
+
+        bool chocaJugador = false;
        
 
         public VentanaGame(int ancho, int alto) : base(ancho, alto)
@@ -83,13 +85,30 @@ namespace CIRCULOS
 
         protected override void OnRenderFrame(FrameEventArgs e)
         {
-
-
-            if (!colisionador.checarlacolision(raqueta1, boli))
+            if (chocaJugador == false)
             {
-                cinco.x -= 0.1;
+
+                if (!colisionador.checarlacolision(raqueta1, boli))
+                {
+                    cinco.x -= 0.1;
+                }
+                else
+                {
+                    chocaJugador = true;
+                }
             }
-            else cinco.x += 0.1;
+            else
+            {
+                if (!colisionador.checarlacolision(raqueta2, boli))
+                {
+                    cinco.x += 0.1;
+                }
+                else
+                {
+                    chocaJugador = false;
+                }
+
+            }
 
 
             base.OnRenderFrame(e);
@@ -99,7 +118,7 @@ namespace CIRCULOS
             raqueta2.Imprime(tres, cuatro);
             boli.Imprime(cinco, 0.5);
             uno.y = dos.y - 3;
-            tres.y = cuatro.y + 3;
+            tres.y = cuatro.y - 3;
 
             this.SwapBuffers();
         }
