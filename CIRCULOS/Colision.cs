@@ -44,6 +44,42 @@ namespace CIRCULOS
           
         }
 
+        public bool checarlacolision(Cuadro player, circulo pelota)
+        {
+
+            if (pelota.Derecha <= player.Izquierda)
+            {
+
+
+                return false;
+            }
+            if (pelota.Izquierda >= player.Derecha)
+            {
+
+
+                return false;
+            }
+
+            if (pelota.Arriba <= player.Abajo)
+            {
+
+
+                return false;
+            }
+
+
+            if (pelota.Abajo >= player.Arriba)
+            {
+
+
+                return false;
+            }
+
+
+
+            return true;
+        }
+
 
     }
 }
