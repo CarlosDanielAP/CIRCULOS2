@@ -18,10 +18,10 @@ namespace CIRCULOS
         Cuadro raqueta2 = new Cuadro();
         Circulo boli = new Circulo();
         Punto uno = new Punto(1, 0);
-        Punto dos = new Punto(2,1 );
-        Punto tres = new Punto(7, 1);
-        Punto cuatro = new Punto(13,13);
-        Punto cinco = new Punto(7, 5);
+        Punto dos = new Punto(2,7 );
+        Punto tres = new Punto(13, 0);
+        Punto cuatro = new Punto(14,1);
+        Punto cinco = new Punto(5, 5);
         Colision colisionador = new Colision();
        
 
@@ -47,10 +47,10 @@ namespace CIRCULOS
                     break;
 
                 case 'o':
-                    tres.y++;
+                    cuatro.y++;
                     break;
                 case 'l':
-                    tres.y--;
+                    cuatro.y--;
                     break;
 
 
@@ -98,8 +98,8 @@ namespace CIRCULOS
             raqueta1.Imprime(uno, dos);
             raqueta2.Imprime(tres, cuatro);
             boli.Imprime(cinco, 0.5);
-            dos.x = uno.x + 0.5;
-            
+            uno.y = dos.y - 3;
+            tres.y = cuatro.y + 3;
 
             this.SwapBuffers();
         }
