@@ -18,7 +18,7 @@ namespace CIRCULOS
         double Aba;
         double Izq;
         double Der;
-        double CentY;
+
 
         public Circulo()
         {
@@ -26,7 +26,6 @@ namespace CIRCULOS
             Aba = 0;
             Izq = 0;
             Der = 0;
-            CentY = 0;
             numLineas = 90;
 
         }
@@ -39,7 +38,6 @@ namespace CIRCULOS
             Izq = a.x + radio;
             Arr = a.y - radio;
             Aba = a.y + radio;
-            CentY = a.y;
             GL.Color3(0.0f, 0.0f, 0.0f);
             GL.Begin(PrimitiveType.Polygon);
             for (double i = 0; i < numLineas; i++)
@@ -73,10 +71,6 @@ namespace CIRCULOS
         public double Arriba
         {
             get { return Arr; }
-        }
-        public double CentroY
-        {
-            get { return CentY; }
         }
 
     }

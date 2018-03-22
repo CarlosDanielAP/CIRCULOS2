@@ -20,17 +20,13 @@ namespace CIRCULOS
         Cuadro paredDer = new Cuadro();
         Circulo boli = new Circulo();
         Punto uno = new Punto(1, 0);
-        Punto dos = new Punto(2, 7);
+        Punto dos = new Punto(2,7 );
         Punto tres = new Punto(13, 0);
-<<<<<<< HEAD
-        Punto cuatro = new Punto(14, 7);
-=======
-        Punto cuatro = new Punto(14,1);
->>>>>>> parent of f49581d... mandamos al centro
+        Punto cuatro = new Punto(14,7);
         Punto cinco = new Punto(5, 5);//punto para pelotita
         //puntos para paredes
         Punto seis = new Punto(0, 0);
-        Punto siete = new Punto(1, 13);
+        Punto siete = new Punto(1,13 );
 
         Punto ocho = new Punto(14, 0);
         Punto nueve = new Punto(15.5, 13);
@@ -38,12 +34,11 @@ namespace CIRCULOS
         Colision colisionador = new Colision();
 
         bool chocaJugador = false;
-        bool arribita = false;
-
+       
 
         public VentanaGame(int ancho, int alto) : base(ancho, alto)
         {
-
+           
         }
 
         protected override void OnKeyPress(KeyPressEventArgs e)
@@ -53,12 +48,12 @@ namespace CIRCULOS
 
             switch (e.KeyChar)
             {
-
-                case 'w':
+                
+                    case 'w':
                     dos.y++;
-
+                    
                     break;
-                case 's':
+                    case 's':
                     dos.y--;
                     break;
 
@@ -71,9 +66,9 @@ namespace CIRCULOS
 
 
 
-            }
+                }
         }
-
+       
 
 
         protected override void OnLoad(EventArgs e)
@@ -83,7 +78,7 @@ namespace CIRCULOS
             GL.LoadIdentity();
             GL.MatrixMode(MatrixMode.Projection);
             GL.Ortho(0, 15, 0, 13, -1, 1);
-
+          
 
         }
         protected override void OnUpdateFrame(FrameEventArgs e)
@@ -105,22 +100,10 @@ namespace CIRCULOS
 
                 if (!colisionador.checarlacolision(raqueta1, boli))
                 {
-
                     cinco.x -= 0.1;
-                    if (arribita)
-                    {
-                        cinco.y += 0.1;
-                    }
-                    else
-                    {
-                        cinco.y -= 0.1;
-                    }
-
                 }
                 else
                 {
-
-             
                     chocaJugador = true;
                 }
             }
@@ -129,65 +112,42 @@ namespace CIRCULOS
                 if (!colisionador.checarlacolision(raqueta2, boli))
                 {
                     cinco.x += 0.1;
-                    if (arribita)
-                    {
-                        cinco.y += 0.1;
-                    }
-                    else
-                    {
-                        cinco.y -= 0.1;
-                    }
                 }
                 else
                 {
-                
-
                     chocaJugador = false;
-
-                }
-                ///paredes limites
-                if (colisionador.checarlacolision(paredIZQ, boli))
-                {
-                    Console.WriteLine("punto p1");
-                    //mandamos la bolita al centro
-                    cinco.valores(5, 5);
-                }
-                if (colisionador.checarlacolision(paredDer, boli))
-                {
-                    Console.WriteLine("punto p2");
-                    cinco.valores(5, 5);
                 }
 
-<<<<<<< HEAD
-=======
             }
             ///paredes limites
             if (colisionador.checarlacolision(paredIZQ, boli))
             {
                 Console.WriteLine("punto p1");
+                //mandamos la bolita al centro
+                cinco.valores(5, 5);
             }
             if (colisionador.checarlacolision(paredDer, boli))
             {
                 Console.WriteLine("punto p2");
-            }
->>>>>>> parent of f49581d... mandamos al centro
-
-
-                base.OnRenderFrame(e);
-
-                paredDer.Imprime(seis, siete);
-                paredIZQ.Imprime(ocho, nueve);
-                raqueta1.Imprime(uno, dos);
-                raqueta2.Imprime(tres, cuatro);
-                boli.Imprime(cinco, 0.5);
-                uno.y = dos.y - 3;
-                tres.y = cuatro.y - 3;
-
-                this.SwapBuffers();
+                cinco.valores(5, 5);
             }
 
 
 
+            base.OnRenderFrame(e);
+
+            paredDer.Imprime(seis, siete);
+            paredIZQ.Imprime(ocho, nueve);
+            raqueta1.Imprime(uno, dos);
+            raqueta2.Imprime(tres, cuatro);
+            boli.Imprime(cinco, 0.5);
+            uno.y = dos.y - 3;
+            tres.y = cuatro.y - 3;
+
+            this.SwapBuffers();
         }
+
+       
+
     }
 }
