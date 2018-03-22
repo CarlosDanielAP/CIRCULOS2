@@ -16,12 +16,21 @@ namespace CIRCULOS
     {
         Cuadro raqueta1 = new Cuadro();
         Cuadro raqueta2 = new Cuadro();
+        Cuadro paredIZQ = new Cuadro();
+        Cuadro paredDer = new Cuadro();
         Circulo boli = new Circulo();
         Punto uno = new Punto(1, 0);
         Punto dos = new Punto(2,7 );
         Punto tres = new Punto(13, 0);
         Punto cuatro = new Punto(14,1);
-        Punto cinco = new Punto(5, 5);
+        Punto cinco = new Punto(5, 5);//punto para pelotita
+        //puntos para paredes
+        Punto seis = new Punto(0, 0);
+        Punto siete = new Punto(1,13 );
+
+        Punto ocho = new Punto(14, 0);
+        Punto nueve = new Punto(15.5, 13);
+
         Colision colisionador = new Colision();
 
         bool chocaJugador = false;
@@ -85,6 +94,7 @@ namespace CIRCULOS
 
         protected override void OnRenderFrame(FrameEventArgs e)
         {
+            /////rebote de pelotita////
             if (chocaJugador == false)
             {
 
@@ -109,11 +119,22 @@ namespace CIRCULOS
                 }
 
             }
+            ///paredes limites
+            if (colisionador.checarlacolision(paredIZQ, boli))
+            {
+                Console.WriteLine("punto p1");
+            }
+            if (colisionador.checarlacolision(paredDer, boli))
+            {
+                Console.WriteLine("punto p2");
+            }
+
 
 
             base.OnRenderFrame(e);
 
-
+            paredDer.Imprime(seis, siete);
+            paredIZQ.Imprime(ocho, nueve);
             raqueta1.Imprime(uno, dos);
             raqueta2.Imprime(tres, cuatro);
             boli.Imprime(cinco, 0.5);

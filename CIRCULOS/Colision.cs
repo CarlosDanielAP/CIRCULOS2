@@ -46,7 +46,7 @@ namespace CIRCULOS
 
         public bool checarlacolision(Cuadro player, Circulo pelota)
         {
-
+        
             if (pelota.Derecha <= player.Izquierda)
             {
 
