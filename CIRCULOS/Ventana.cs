@@ -151,6 +151,19 @@ namespace CIRCULOS
             {
                 cinco.y -= 0.1;
             }
+
+
+            if (cinco.y >= 13)
+            {
+                arribita = false;
+            }
+            if (cinco.y <= 0)
+            {
+                arribita = true;
+            }
+
+
+
             ///paredes limites
             if (colisionador.checarlacolision(paredIZQ, boli))
             {
