@@ -17,17 +17,17 @@ namespace CIRCULOS
         Cuadro raqueta1 = new Cuadro();
         Cuadro raqueta2 = new Cuadro();
         Circulo boli = new Circulo();
-        Punto uno = new Punto(0, 0);
-        Punto dos = new Punto(1,1 );
-        Punto tres = new Punto(1, 1);
+        Punto uno = new Punto(1, 0);
+        Punto dos = new Punto(2,1 );
+        Punto tres = new Punto(7, 1);
         Punto cuatro = new Punto(13,13);
-        Punto cinco = new Punto(5, 5);
+        Punto cinco = new Punto(7, 5);
         Colision colisionador = new Colision();
        
 
         public VentanaGame(int ancho, int alto) : base(ancho, alto)
         {
-
+           
         }
 
         protected override void OnKeyPress(KeyPressEventArgs e)
@@ -67,8 +67,7 @@ namespace CIRCULOS
             GL.LoadIdentity();
             GL.MatrixMode(MatrixMode.Projection);
             GL.Ortho(0, 15, 0, 13, -1, 1);
-            uno.valores(1, 1);
-            dos.valores(2, 2);
+          
 
         }
         protected override void OnUpdateFrame(FrameEventArgs e)
@@ -86,10 +85,11 @@ namespace CIRCULOS
         {
 
 
-            if (!colisionador.checarlacolision(raqueta2,boli))
+            if (!colisionador.checarlacolision(raqueta1, boli))
             {
-                cinco.x-=0.1;
+                cinco.x -= 0.1;
             }
+            else cinco.x += 0.1;
 
 
             base.OnRenderFrame(e);
@@ -99,9 +99,8 @@ namespace CIRCULOS
             raqueta2.Imprime(tres, cuatro);
             boli.Imprime(cinco, 0.5);
             dos.x = uno.x + 0.5;
-            uno.y = dos.y + 3;
-            tres.x = cuatro.x + 0.5;
-            cuatro.y = tres.y + 3;
+            
+
             this.SwapBuffers();
         }
 
