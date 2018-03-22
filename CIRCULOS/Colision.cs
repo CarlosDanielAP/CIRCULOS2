@@ -44,6 +44,17 @@ namespace CIRCULOS
           
         }
 
+        public bool checarmitad(Cuadro raqueta,Circulo pelotita)
+        {
+            double mitad = raqueta.Arriba / 2;
+            //si la pelotita choca en la mitad de arriba es verdadero 
+          
+            if (pelotita.CentroY>mitad)
+                return true;
+           else 
+                return false;
+        }
+
         public bool checarlacolision(Cuadro player, Circulo pelota)
         {
         
@@ -62,7 +73,7 @@ namespace CIRCULOS
 
             if (pelota.Arriba <= player.Abajo)
             {
-
+               
 
                 return false;
             }
