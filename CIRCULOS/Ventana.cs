@@ -22,7 +22,7 @@ namespace CIRCULOS
         Punto uno = new Punto(1, 0);
         Punto dos = new Punto(2,7 );
         Punto tres = new Punto(13, 0);
-        Punto cuatro = new Punto(14,1);
+        Punto cuatro = new Punto(14,7);
         Punto cinco = new Punto(5, 5);//punto para pelotita
         //puntos para paredes
         Punto seis = new Punto(0, 0);
@@ -123,10 +123,13 @@ namespace CIRCULOS
             if (colisionador.checarlacolision(paredIZQ, boli))
             {
                 Console.WriteLine("punto p1");
+                //mandamos la bolita al centro
+                cinco.valores(5, 5);
             }
             if (colisionador.checarlacolision(paredDer, boli))
             {
                 Console.WriteLine("punto p2");
+                cinco.valores(5, 5);
             }
 
 
